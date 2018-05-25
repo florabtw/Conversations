@@ -1,33 +1,24 @@
-import React, { Component } from 'react';
-import { database } from './firebase';
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { auth } from './firebase';
 
-class App extends Component {
-  constructor() {
-    super();
+import Home from './Home/Home';
+import Profile from './Profile/Profile';
 
-    this.state = {
-      message: 'Loading message...'
-    };
-  }
+const App = () => (
+  <Switch>
+    <Route exact path="/" component={Home} />
+    <PrivateRoute path="/profile" component={Profile} />
+  </Switch>
+);
 
-  componentDidMount() {
-    this.updateComponent();
-  }
-
-  updateComponent = async () => {
-    const message = await database
-      .ref('hello')
-      .once('value')
-      .then(snapshot => snapshot.val());
-
-    this.setState({ message });
-  };
-
-  render() {
-    const { message } = this.state;
-
-    return <div>{message}</div>;
-  }
-}
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      auth.currentUser ? <Component {...props} /> : <Redirect to="/" />
+    }
+  />
+);
 
 export default App;
