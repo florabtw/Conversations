@@ -8,21 +8,21 @@ class Home extends Component {
   constructor() {
     super();
 
-    this.state = { loggedIn: false };
+    this.state = { signedIn: false };
   }
 
   componentDidMount() {
     auth.onAuthStateChanged(user => {
-      if (user) this.setState({ loggedIn: true });
+      if (user) this.setState({ signedIn: true });
     });
   }
 
-  handleLogIn = () => {
+  handleSignIn = () => {
     auth.signInWithPopup(googleAuthProvider);
   };
 
   render() {
-    if (this.state.loggedIn) return <Redirect to="/profile" />;
+    if (this.state.signedIn) return <Redirect to="/profile" />;
 
     return (
       <div>
@@ -32,7 +32,7 @@ class Home extends Component {
           Personally, I only count conversations which I initiate. If it only
           reaches "Hello", I still count it – as long as they respond.
         </p>
-        <GoogleButton onClick={this.handleLogIn} />
+        <GoogleButton onClick={this.handleSignIn} />
       </div>
     );
   }
