@@ -1,0 +1,23 @@
+.peeps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.peep {
+  padding: 1rem 0;
+}
+
+.peep + .peep {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.peep__name {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.peep__count {
+  color: #555;
+  font-size: 0.875rem;
+}

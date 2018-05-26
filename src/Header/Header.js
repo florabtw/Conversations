@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
-import { googleAuthProvider, auth } from '../firebase';
+import { database, auth, googleAuthProvider } from '../firebase';
 
 import './header.css';
 
@@ -10,10 +10,22 @@ class Header extends Component {
     const { history } = this.props;
 
     auth.onAuthStateChanged(user => {
-      if (user) history.push('/profile');
+      if (user) this.signInUser(user);
       else history.push('/');
     });
   }
+
+  signInUser = user => {
+    const { history } = this.props;
+
+    const uid = user.uid;
+    const name = user.displayName;
+
+    database
+      .ref(`users/${uid}`)
+      .set({ uid, name })
+      .then(() => history.push('/profile'));
+  };
 
   handleSignIn = () => {
     auth.signInWithPopup(googleAuthProvider);
