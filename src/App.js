@@ -3,8 +3,10 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { WanderingCubes } from 'better-react-spinkit';
 
 import { auth } from './firebase';
+
 import Home from './Home/Home';
 import Profile from './Profile/Profile';
+import Header from './Header/Header';
 
 class App extends Component {
   constructor() {
@@ -23,10 +25,13 @@ class App extends Component {
     if (isLoading) return <LoadingSpinner />;
 
     return (
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <PrivateRoute path="/profile" component={Profile} />
-      </Switch>
+      <React.Fragment>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <PrivateRoute path="/profile" component={Profile} />
+        </Switch>
+      </React.Fragment>
     );
   }
 }

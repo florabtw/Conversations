@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { database, auth } from '../firebase';
 
 import './profile.css';
@@ -16,10 +15,7 @@ class Profile extends Component {
   constructor() {
     super();
 
-    this.state = {
-      signedOut: false,
-      count: 0
-    };
+    this.state = { count: 0 };
   }
 
   componentDidMount() {
@@ -37,11 +33,6 @@ class Profile extends Component {
       });
   }
 
-  handleSignOut = () => {
-    auth.signOut();
-    this.setState({ signedOut: true });
-  };
-
   handleIncrement = () => {
     const uid = auth.currentUser.uid;
 
@@ -57,20 +48,10 @@ class Profile extends Component {
   };
 
   render() {
-    const { count, signedOut } = this.state;
-
-    if (signedOut) return <Redirect to="/" />;
+    const { count } = this.state;
 
     return (
       <section id="profile">
-        <div className="links">
-          <div />
-          <div>
-            <button className="link" onClick={this.handleSignOut}>
-              Sign out
-            </button>
-          </div>
-        </div>
         <div className="counter">
           <p className="counter__text">You have had</p>
           <div className="counter__count">{count}</div>

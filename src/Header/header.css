@@ -1,0 +1,23 @@
+.links {
+  display: flex;
+  height: 2rem;
+  justify-content: space-between;
+  padding: 1rem 1rem 0;
+}
+
+.link {
+  color: #333;
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.link + .link {
+  margin-left: 1rem;
+}
+
+button.link {
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline
+}

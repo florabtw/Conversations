@@ -2,25 +2,6 @@
   padding: 0 1rem;
 }
 
-.links {
-  display: flex;
-  height: 2rem;
-  justify-content: space-between;
-  padding: 1rem 0 0;
-}
-
-.link {
-  font-size: 0.875rem;
-  line-height: 1;
-}
-
-button.link {
-  background: none;
-  border: none;
-  padding: 0;
-  text-decoration: underline
-}
-
 .counter {
   align-items: center;
   display: flex;
