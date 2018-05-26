@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { database, auth } from '../firebase';
 
+import './profile.css';
+
 const dateToKey = date => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -62,19 +64,25 @@ class Profile extends Component {
     return (
       <section id="profile">
         <div className="links">
-          <button className="link" onClick={this.handleSignOut}>
-            Sign out
-          </button>
+          <div />
+          <div>
+            <button className="link" onClick={this.handleSignOut}>
+              Sign out
+            </button>
+          </div>
         </div>
         <div className="counter">
-          <p className="counter__intro">You have had</p>
+          <p className="counter__text">You have had</p>
           <div className="counter__count">{count}</div>
-          <p className="counter__outro">conversations today.</p>
-        </div>
-        <div className="clicker">
-          <button className="clicker__action" onClick={this.handleIncrement}>
-            Increment
-          </button>
+          <p className="counter__text">conversations today.</p>
+          <div className="clickers">
+            <button
+              className="clicker__increment"
+              onClick={this.handleIncrement}
+            >
+              Increment
+            </button>
+          </div>
         </div>
       </section>
     );
