@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { WanderingCubes } from 'better-react-spinkit';
 
 import { database } from '../firebase';
@@ -32,6 +33,12 @@ class Users extends Component {
     });
   }
 
+  handleUserClick = uid => {
+    const { history } = this.props;
+
+    history.push(`/users/${uid}`);
+  };
+
   renderPeep = user => {
     const today = new Date();
     const todayKey = dateToKey(today);
@@ -39,9 +46,12 @@ class Users extends Component {
     const days = user.days || {};
     const count = days[todayKey] || 0;
 
+    const uid = user.uid;
+    const name = user.name;
+
     return (
-      <li className="peep" key={user.uid}>
-        <div className="peep__name">{user.name}</div>
+      <li className="peep" key={uid} onClick={() => this.handleUserClick(uid)}>
+        <div className="peep__name">{name}</div>
         <div className="peep__count">{count} conversations today.</div>
       </li>
     );
@@ -73,4 +83,4 @@ class Users extends Component {
   }
 }
 
-export default Users;
+export default withRouter(Users);

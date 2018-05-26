@@ -23,7 +23,7 @@ class Header extends Component {
 
     database
       .ref(`users/${uid}`)
-      .set({ uid, name })
+      .update({ uid, name })
       .then(() => history.push('/profile'));
   };
 

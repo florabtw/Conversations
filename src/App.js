@@ -7,6 +7,7 @@ import { auth } from './firebase';
 import Home from './Home/Home';
 import Profile from './Profile/Profile';
 import Header from './Header/Header';
+import User from './User/User';
 
 class App extends Component {
   constructor() {
@@ -29,6 +30,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/users/:id" component={User} />
           <PrivateRoute path="/profile" component={Profile} />
         </Switch>
       </React.Fragment>

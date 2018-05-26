@@ -1,11 +1,16 @@
 .peeps {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .peep {
-  padding: 1rem 0;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.peep:hover {
+  background: #EEE;
 }
 
 .peep + .peep {

@@ -23,7 +23,7 @@ class Home extends Component {
           </p>
           <p>
             Rules? There are none. You get to choose what is a meaningful
-            conversation. I plan on starting small: "Hello".
+            conversation. I plan on starting small: "Hello."
           </p>
         </section>
         <Users />
