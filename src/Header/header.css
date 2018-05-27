@@ -21,3 +21,12 @@ button.link {
   padding: 0;
   text-decoration: underline
 }
+
+@media (min-width: 500px) {
+  .links {
+    margin: 0 auto;
+    max-width: 500px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

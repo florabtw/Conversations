@@ -8,3 +8,9 @@
 #home p {
   line-height: 1.5;
 }
+
+@media (min-width: 500px) {
+  #home h1 {
+    font-size: 5rem;
+  }
+}

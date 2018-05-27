@@ -9,7 +9,7 @@ class Home extends Component {
     return (
       <React.Fragment>
         <section className="section" id="home">
-          <h1>Come out of your shell!</h1>
+          <h1>Come out of your shell :)</h1>
           <p>
             I built this site to help incentivize myself to be more outgoing.
             Relationships are critical to happiness and by being shy I am

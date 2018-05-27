@@ -8,3 +8,12 @@
   margin: 0;
   margin-bottom: 1rem;
 }
+
+@media (min-width: 500px) {
+  .section {
+    margin: 0 auto;
+    max-width: 500px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
